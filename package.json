@@ -1,13 +1,19 @@
 {
     "name": "vue-form-kit",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "license": "MIT",
     "type": "module",
+    "keywords":[
+        "form-kit"
+    ],
     "author": {
         "name": "Yaroslav Georitsa",
         "email": "yaroslav.georgitsa@gmail.com"
     },
-    "files": ["dist"],
+    "files": [
+        "dist",
+        "src"
+    ],
     "main": "./dist/vue-form-kit.umd.cjs",
     "module": "./dist/vue-form-kit.js",
     "exports": {
