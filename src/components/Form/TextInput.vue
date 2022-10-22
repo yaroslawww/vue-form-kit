@@ -11,20 +11,30 @@
     >
       {{ label }}
     </label>
-    <input
-      :id="id"
-      :value="modelValue"
-      :name="name"
-      :type="type"
-      :autocomplete="autocomplete"
-      :required="required"
-      :disabled="disabled"
-      class="form-input-text w-full"
-      :class="inputClass"
-      :placeholder="placeholder"
-      :maxlength="maxlength"
-      @input="(event) => $emit('update:modelValue', event.target.value)"
-    >
+    <div :class="inputWrapClass">
+      <slot name="before-input" />
+      <input
+        :id="id"
+        :value="modelValue"
+        :dusk="dusk || `form--${name || id || 'input'}`"
+        :tabindex="tabindex"
+        :name="name"
+        :type="type"
+        :autocomplete="autocomplete"
+        :required="required"
+        :disabled="disabled"
+        class="form-input-text w-full"
+        :class="inputClass"
+        :placeholder="placeholder"
+        :maxlength="maxlength"
+        :minlength="minlength"
+        :max="max"
+        :min="min"
+        :step="step"
+        @input="(event) => $emit('update:modelValue', event.target.value)"
+      >
+      <slot name="after-input" />
+    </div>
     <div
       v-if="error"
       class="form-validation-error"
@@ -44,6 +54,10 @@ export default {
     },
     inputClass: {
       type: [String, Array, Object],
+      default: null,
+    },
+    tabindex: {
+      type: String,
       default: null,
     },
     label: {
@@ -78,6 +92,22 @@ export default {
       type: String,
       default: null,
     },
+    minlength: {
+      type: String,
+      default: null,
+    },
+    max: {
+      type: String,
+      default: null,
+    },
+    min: {
+      type: String,
+      default: null,
+    },
+    step: {
+      type: String,
+      default: null,
+    },
     required: {
       type: [String, Boolean],
       default: false,
@@ -85,6 +115,14 @@ export default {
     disabled: {
       type: [String, Boolean],
       default: false,
+    },
+    dusk: {
+      type: String,
+      default: null,
+    },
+    inputWrapClass: {
+      type: [String, Object, Array],
+      default: null,
     },
   },
   emits: ['update:modelValue'],

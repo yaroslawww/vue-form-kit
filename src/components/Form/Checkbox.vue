@@ -14,11 +14,26 @@
         @change="$emit('change', $event)"
       >
       <div class="control_indicator" />
-      <span
-        class="pl-2"
-        :class="[required!==null?'form-label--required':'', labelClass]"
-        v-html="label"
-      />
+      <div class="flex">
+        <slot
+          name="label-prefix"
+          v-bind="{required, label}"
+        />
+        <slot
+          name="label"
+          v-bind="{required, label}"
+        >
+          <span
+            class="pl-2"
+            :class="[required!==null?'form-label--required':'', labelClass]"
+            v-html="label"
+          />
+        </slot>
+        <slot
+          name="label-suffix"
+          v-bind="{required, label}"
+        />
+      </div>
     </label>
     <div
       v-if="error"
@@ -87,6 +102,7 @@ export default {
   setup(props, { emit }) {
     const checkboxValue = ref(props.modelValue);
     watch(checkboxValue, (newVal) => emit('update:modelValue', newVal));
+    // eslint-disable-next-line no-return-assign
     watch(() => props.modelValue, (newVal) => checkboxValue.value = newVal);
     return {
       checkboxValue,

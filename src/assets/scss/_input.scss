@@ -80,3 +80,10 @@
     @apply border-b-4;
   }
 }
+
+.form-progress {
+  @apply transition-all duration-500;
+  &--in {
+    @apply pointer-events-none opacity-75;
+  }
+}

@@ -3,7 +3,7 @@
   @apply py-3 px-4;
   height: $formInputHeight;
   @apply select-none;
-  @apply rounded-lg focus:outline-none;
+  @apply focus:outline-none;
 
   &:disabled {
     @apply cursor-not-allowed opacity-75;

@@ -14,6 +14,8 @@
     <textarea
       :id="id"
       :value="modelValue"
+      :dusk="dusk || `form--${name || id || 'input'}`"
+      :tabindex="tabindex"
       :name="name"
       :autocomplete="autocomplete"
       :required="required"
@@ -21,6 +23,7 @@
       class="form-input-text form-input-textarea w-full"
       :placeholder="placeholder"
       :maxlength="maxlength"
+      :minlength="minlength"
       :cols="cols"
       :rows="rows"
       @input="(event) => $emit('update:modelValue', event.target.value)"
@@ -41,6 +44,10 @@ export default {
     modelValue: {
       type: String,
       default: '',
+    },
+    tabindex: {
+      type: String,
+      default: null,
     },
     label: {
       type: String,
@@ -70,6 +77,10 @@ export default {
       type: String,
       default: null,
     },
+    minlength: {
+      type: String,
+      default: null,
+    },
     required: {
       type: [String, Boolean],
       default: false,
@@ -84,6 +95,10 @@ export default {
     },
     rows: {
       type: [Number, String],
+      default: null,
+    },
+    dusk: {
+      type: String,
       default: null,
     },
   },

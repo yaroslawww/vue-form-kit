@@ -20,6 +20,9 @@ const VueFormKit = {
         app.component(`${configs.componentPrefix}${folder}${componentName}`, defineAsyncComponent(m));
       });
     });
+
+    app.config.globalProperties.$formKitConfigs = configs;
+    app.provide('formKitConfigs', configs);
   },
 };
 

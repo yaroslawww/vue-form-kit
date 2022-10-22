@@ -7,6 +7,7 @@
       v-if="label"
       :for="id"
       class="form-input-label"
+      :class="[required===false?'':'form-input-label--required']"
     >
       {{ label }}
     </label>

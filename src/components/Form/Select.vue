@@ -11,7 +11,8 @@
     >
       {{ label }}
     </label>
-    <SelectStandard
+    <component
+      :is="`${$formKitConfigs.componentPrefix}SelectStandard`"
       :id="id"
       :model-value="modelValue"
       :options="options"

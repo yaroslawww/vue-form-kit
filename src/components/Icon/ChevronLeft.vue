@@ -14,6 +14,6 @@
 
 <script>
 export default {
-  name: 'ChevronLeft',
+  name: 'IconChevronLeft',
 };
 </script>

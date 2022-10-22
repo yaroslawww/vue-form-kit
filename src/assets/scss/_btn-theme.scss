@@ -1,4 +1,6 @@
 .btn {
+  @apply rounded-lg;
+
   &--default {
     @apply border border-gray hover:border-black;
     @apply text-white bg-gray hover:bg-black;

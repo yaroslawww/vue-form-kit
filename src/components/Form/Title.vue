@@ -1,9 +1,10 @@
 <template>
   <div
-    v-if="title"
     :class="['form-title', `form-title-h${level}`]"
   >
-    {{ title }}
+    <slot>
+      {{ title }}
+    </slot>
   </div>
 </template>
 
