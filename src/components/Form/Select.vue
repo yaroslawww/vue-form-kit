@@ -1,16 +1,12 @@
 <template>
-  <div
-    class="form-input-wrap"
-    :class="{'has-validation-error': !!error}"
+  <component
+    :is="`${$formKitConfigs.componentPrefix}FormInputWrapper`"
+    :id="id"
+    :label="label"
+    :error="error"
+    :required="required"
+    :input-wrap-class="inputWrapClass"
   >
-    <label
-      v-if="label"
-      :for="id"
-      class="form-input-label"
-      :class="[required===false?'':'form-input-label--required']"
-    >
-      {{ label }}
-    </label>
     <component
       :is="`${$formKitConfigs.componentPrefix}SelectStandard`"
       :id="id"
@@ -22,13 +18,7 @@
       class="w-full"
       @update:model-value="$emit('update:modelValue', $event)"
     />
-    <div
-      v-if="error"
-      class="form-validation-error"
-    >
-      {{ error }}
-    </div>
-  </div>
+  </component>
 </template>
 
 <script>
@@ -62,6 +52,10 @@ export default {
     required: {
       type: [String, Boolean],
       default: false,
+    },
+    inputWrapClass: {
+      type: [String, Object, Array],
+      default: null,
     },
   },
   emits: ['update:modelValue'],

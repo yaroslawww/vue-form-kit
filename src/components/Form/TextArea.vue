@@ -1,16 +1,12 @@
 <template>
-  <div
-    class="form-input-wrap"
-    :class="{'has-validation-error': !!error}"
+  <component
+    :is="`${$formKitConfigs.componentPrefix}FormInputWrapper`"
+    :id="id"
+    :label="label"
+    :error="error"
+    :required="required"
+    :input-wrap-class="inputWrapClass"
   >
-    <label
-      v-if="label"
-      :for="id"
-      class="form-input-label"
-      :class="[required===false?'':'form-input-label--required']"
-    >
-      {{ label }}
-    </label>
     <textarea
       :id="id"
       :value="modelValue"
@@ -28,13 +24,7 @@
       :rows="rows"
       @input="(event) => $emit('update:modelValue', event.target.value)"
     />
-    <div
-      v-if="error"
-      class="form-validation-error"
-    >
-      {{ error }}
-    </div>
-  </div>
+  </component>
 </template>
 
 <script>
@@ -99,6 +89,10 @@ export default {
     },
     dusk: {
       type: String,
+      default: null,
+    },
+    inputWrapClass: {
+      type: [String, Object, Array],
       default: null,
     },
   },

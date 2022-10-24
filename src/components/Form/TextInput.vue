@@ -1,47 +1,33 @@
 <template>
-  <div
-    class="form-input-wrap"
-    :class="{'has-validation-error': !!error}"
+  <component
+    :is="`${$formKitConfigs.componentPrefix}FormInputWrapper`"
+    :id="id"
+    :label="label"
+    :error="error"
+    :required="required"
+    :input-wrap-class="inputWrapClass"
   >
-    <label
-      v-if="label"
-      :for="id"
-      class="form-input-label"
-      :class="[required===false?'':'form-input-label--required']"
+    <input
+      :id="id"
+      :value="modelValue"
+      :dusk="dusk || `form--${name || id || 'input'}`"
+      :tabindex="tabindex"
+      :name="name"
+      :type="type"
+      :autocomplete="autocomplete"
+      :required="required"
+      :disabled="disabled"
+      class="form-input-text w-full"
+      :class="inputClass"
+      :placeholder="placeholder"
+      :maxlength="maxlength"
+      :minlength="minlength"
+      :max="max"
+      :min="min"
+      :step="step"
+      @input="(event) => $emit('update:modelValue', event.target.value)"
     >
-      {{ label }}
-    </label>
-    <div :class="inputWrapClass">
-      <slot name="before-input" />
-      <input
-        :id="id"
-        :value="modelValue"
-        :dusk="dusk || `form--${name || id || 'input'}`"
-        :tabindex="tabindex"
-        :name="name"
-        :type="type"
-        :autocomplete="autocomplete"
-        :required="required"
-        :disabled="disabled"
-        class="form-input-text w-full"
-        :class="inputClass"
-        :placeholder="placeholder"
-        :maxlength="maxlength"
-        :minlength="minlength"
-        :max="max"
-        :min="min"
-        :step="step"
-        @input="(event) => $emit('update:modelValue', event.target.value)"
-      >
-      <slot name="after-input" />
-    </div>
-    <div
-      v-if="error"
-      class="form-validation-error"
-    >
-      {{ error }}
-    </div>
-  </div>
+  </component>
 </template>
 
 <script>
