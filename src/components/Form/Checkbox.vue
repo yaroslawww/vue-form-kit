@@ -37,7 +37,7 @@
     </label>
     <div
       v-if="error"
-      class="form-error"
+      class="form-validation-error"
       v-html="error"
     />
   </div>

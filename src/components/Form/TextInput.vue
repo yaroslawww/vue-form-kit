@@ -7,6 +7,15 @@
     :required="required"
     :input-wrap-class="inputWrapClass"
   >
+    <template
+      v-for="(_, name) in $slots"
+      #[name]="slotData"
+    >
+      <slot
+        :name="name"
+        v-bind="slotData"
+      />
+    </template>
     <input
       :id="id"
       :value="modelValue"

@@ -19,9 +19,8 @@
     <div
       v-if="error"
       class="form-validation-error"
-    >
-      {{ error }}
-    </div>
+      v-html="error"
+    />
   </div>
 </template>
 
