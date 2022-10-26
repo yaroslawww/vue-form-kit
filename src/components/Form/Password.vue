@@ -8,8 +8,8 @@
     :input-wrap-class="inputWrapClass"
   >
     <template
-      v-for="(_, name) in $slots"
-      #[name]="slotData"
+      v-for="(_, slotName) in $slots"
+      #[slotName]="slotData"
     >
       <slot
         :name="name"

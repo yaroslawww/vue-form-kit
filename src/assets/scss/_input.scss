@@ -68,6 +68,10 @@
 .form-separator {
   @extend .form-input-wrap;
 
+  &--symmetric {
+    @apply mt-6;
+  }
+
   &-h1 {
     @apply border-b;
   }

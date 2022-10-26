@@ -26,11 +26,16 @@
             v-html="selectedLabel"
           />
         </slot>
-        <span
+        <slot
           v-else
-          class="x-selector__placeholder whitespace-no-wrap"
-          v-html="label"
-        />
+          name="placeholder"
+          v-bind="{label}"
+        >
+          <span
+            class="x-selector__placeholder whitespace-no-wrap"
+            v-html="label"
+          />
+        </slot>
       </div>
       <slot
         name="option-check-icon"
