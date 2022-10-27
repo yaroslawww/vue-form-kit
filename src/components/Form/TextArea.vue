@@ -12,7 +12,7 @@
       #[slotName]="slotData"
     >
       <slot
-        :name="name"
+        :name="slotName"
         v-bind="slotData"
       />
     </template>
