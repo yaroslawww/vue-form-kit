@@ -1,6 +1,11 @@
 <template>
   <div
-    :class="['form-separator', `form-separator-h${level}`, symmetric !== false?'form-separator--symmetric':'']"
+    :class="[
+      'form-separator',
+      `form-separator-h${level}`,
+      separatorStyle ?`form-separator--${separatorStyle}`:'',
+      symmetric !== false?'form-separator--symmetric':'',
+    ]"
   />
 </template>
 
@@ -15,6 +20,10 @@ export default {
     symmetric: {
       type: [Boolean, String],
       default: false,
+    },
+    separatorStyle: {
+      type: String,
+      default: null,
     },
   },
 };
