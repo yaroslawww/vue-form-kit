@@ -3,6 +3,7 @@
     v-click-outside="onClickOutside"
     class="x-selector"
     :class="[{disabled}, suffix?`x-selector--${suffix}`:'']"
+    :tabindex="tabindex"
     @keydown.space.prevent="toggleSelector"
     @keydown.arrow-down.prevent="onArrowDownClick"
     @blur="closeSelector"

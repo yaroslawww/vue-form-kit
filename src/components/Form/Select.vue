@@ -24,6 +24,7 @@
       :name="name"
       :label="label"
       :required="required"
+      :tabindex="tabindex"
       class="w-full"
       @update:model-value="$emit('update:modelValue', $event)"
     />
@@ -37,6 +38,10 @@ export default {
     modelValue: {
       type: String,
       default: '',
+    },
+    tabindex: {
+      type: String,
+      default: null,
     },
     options: {
       type: Array,

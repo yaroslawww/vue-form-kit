@@ -1,5 +1,9 @@
 export default {
   props: {
+    tabindex: {
+      type: String,
+      default: null,
+    },
     dropIcon: {
       type: Boolean,
       default: true,
