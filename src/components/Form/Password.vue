@@ -64,6 +64,10 @@ export default {
       type: String,
       default: '',
     },
+    dusk: {
+      type: String,
+      default: null,
+    },
     inputClass: {
       type: [String, Array, Object],
       default: null,

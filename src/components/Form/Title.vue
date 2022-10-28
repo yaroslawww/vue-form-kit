@@ -17,7 +17,7 @@ export default {
       default: null,
     },
     level: {
-      type: Number,
+      type: [Number, String],
       default: 2,
     },
   },

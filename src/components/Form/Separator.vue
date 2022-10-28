@@ -14,7 +14,7 @@ export default {
   name: 'FormSeparator',
   props: {
     level: {
-      type: Number,
+      type: [Number, String],
       default: 1,
     },
     symmetric: {

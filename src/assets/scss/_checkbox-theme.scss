@@ -5,6 +5,11 @@
   }
 
   input {
+
+    &:focus ~ .control_indicator {
+      @apply shadow-lg;
+    }
+
     &[type="checkbox"] {
       &:checked ~ .control_indicator {
         @apply bg-black border-black;
