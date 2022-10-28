@@ -37,13 +37,18 @@
     <input
       :id="id"
       :value="modelValue"
+      :dusk="dusk || `form--${name || id || 'input'}`"
+      :tabindex="tabindex"
       :name="name"
       :type="hidePassword?'password':'text'"
       :autocomplete="autocomplete"
       :required="required"
       :disabled="disabled"
       class="form-input-text w-full"
+      :class="inputClass"
       :placeholder="placeholder"
+      :maxlength="maxlength"
+      :minlength="minlength"
       @input="(event) => $emit('update:modelValue', event.target.value)"
     >
   </component>
@@ -58,6 +63,14 @@ export default {
     modelValue: {
       type: String,
       default: '',
+    },
+    inputClass: {
+      type: [String, Array, Object],
+      default: null,
+    },
+    tabindex: {
+      type: String,
+      default: null,
     },
     label: {
       type: String,
@@ -90,6 +103,14 @@ export default {
     disabled: {
       type: [String, Boolean],
       default: false,
+    },
+    maxlength: {
+      type: String,
+      default: null,
+    },
+    minlength: {
+      type: String,
+      default: null,
     },
     inputWrapClass: {
       type: [String, Object, Array],
