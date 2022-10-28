@@ -86,7 +86,7 @@ export default {
       default: null,
     },
     value: {
-      type: String,
+      type: [String, Boolean, Number],
       default: null,
     },
     required: {
