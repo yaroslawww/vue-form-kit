@@ -1,10 +1,9 @@
 .control {
   /* Theme */
-  &.disabled {
-    @apply text-gray;
-  }
-
   input {
+    &:disabled ~ .control_indicator + * {
+      @apply text-gray cursor-not-allowed;
+    }
 
     &:focus ~ .control_indicator {
       @apply shadow-lg;
