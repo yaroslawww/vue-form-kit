@@ -44,7 +44,7 @@ export default {
   name: 'FormTextInput',
   props: {
     modelValue: {
-      type: type: [String, Number],
+      type: [String, Number],
       default: '',
     },
     inputClass: {
