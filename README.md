@@ -6,7 +6,13 @@
 
 Simple kit of elements to quicker develop MVP.
 
+```shell
+yarn add vue-form-kit
+```
+
 ## Usage
+
+### js
 
 ```js
 import VueFormKit from 'vue-form-kit';
@@ -16,6 +22,14 @@ this.app.use(VueFormKit);
 this.app.use(VueFormKit, {
     componentPrefix: 'Tog',
 });
+```
+
+### scss
+
+```scss
+@import "vue-form-kit/src/assets/scss/core";
+// theme can be overridden
+@import "vue-form-kit/src/assets/scss/core-theme";
 ```
 
 ## Credits
