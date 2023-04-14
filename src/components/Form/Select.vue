@@ -25,6 +25,8 @@
       :label="label"
       :required="required"
       :tabindex="tabindex"
+      :input-classes="inputClasses"
+      :list-classes="listClasses"
       class="w-full"
       @update:model-value="$emit('update:modelValue', $event)"
     />
@@ -70,6 +72,14 @@ export default {
     inputWrapClass: {
       type: [String, Object, Array],
       default: null,
+    },
+    inputClasses: {
+      type: Object,
+      default: () => ({}),
+    },
+    listClasses: {
+      type: [Object, Array],
+      default: () => ({}),
     },
   },
   emits: ['update:modelValue'],
