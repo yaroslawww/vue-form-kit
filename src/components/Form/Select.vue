@@ -22,7 +22,7 @@
       :model-value="modelValue"
       :options="options"
       :name="name"
-      :label="label"
+      :label="placeholder"
       :required="required"
       :tabindex="tabindex"
       :input-classes="inputClasses"
@@ -48,6 +48,10 @@ export default {
       default: '',
     },
     tabindex: {
+      type: String,
+      default: null,
+    },
+    placeholder: {
       type: String,
       default: null,
     },
