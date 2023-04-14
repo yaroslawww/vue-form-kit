@@ -27,6 +27,12 @@
       :tabindex="tabindex"
       :input-classes="inputClasses"
       :list-classes="listClasses"
+      :disabled="disabled"
+      :deselectable="deselectable"
+      :default-value="defaultValue"
+      :initialize-default-value="initializeDefaultValue"
+      :drop-icon="dropIcon"
+      :suffix="suffix"
       class="w-full"
       @update:model-value="$emit('update:modelValue', $event)"
     />
@@ -73,6 +79,26 @@ export default {
       type: [String, Object, Array],
       default: null,
     },
+    dropIcon: {
+      type: Boolean,
+      default: true,
+    },
+    defaultValue: {
+      type: [Number, String],
+      default: null,
+    },
+    initializeDefaultValue: {
+      type: Boolean,
+      default: false,
+    },
+    disabled: {
+      type: Boolean,
+      default: false,
+    },
+    deselectable: {
+      type: Boolean,
+      default: false,
+    },
     inputClasses: {
       type: Object,
       default: () => ({}),
@@ -80,6 +106,10 @@ export default {
     listClasses: {
       type: [Object, Array],
       default: () => ({}),
+    },
+    suffix: {
+      type: String,
+      default: null,
     },
   },
   emits: ['update:modelValue'],
