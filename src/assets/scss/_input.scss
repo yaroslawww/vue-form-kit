@@ -40,6 +40,13 @@
 .form-title {
   @extend .form-input-wrap;
 
+  &--required {
+    &:after {
+      content: '*';
+      @apply pl-0.5;
+    }
+  }
+
   &-h1 {
     @apply text-2xl;
   }

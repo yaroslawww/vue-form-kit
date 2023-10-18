@@ -32,6 +32,12 @@
 .form-title {
   @apply text-black;
   @apply font-bold;
+
+  &--required {
+    &:after {
+      @apply text-black;
+    }
+  }
 }
 
 .form-separator {
